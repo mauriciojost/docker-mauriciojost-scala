@@ -15,3 +15,5 @@ Then launch:
 ```
 bash build.sh
 ```
+
+(you will need an account at `docker.com` to publish your image).
