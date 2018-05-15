@@ -10,10 +10,10 @@ To build, install:
 sudo apt-get install docker-ce
 ```
 
-Then launch:
+Then launch (don't forget the sudo):
 
 ```
-./build
+sudo ./build
 ```
 
 (you will need an account at `docker.com` to publish your image).
