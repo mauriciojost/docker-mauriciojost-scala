@@ -3,5 +3,11 @@ FROM hseeberger/scala-sbt
  
 RUN apt-get update
  
-RUN apt-get install -y openjdk-8-jdk
+# Java
+RUN apt-get install -y openjdk-8-jdk 
+
+# GUI testing with JAVA
+RUN apt-get install -y openjfx xvfb 
+
+
  
