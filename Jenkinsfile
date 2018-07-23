@@ -13,7 +13,7 @@ node {
   stage('Build image') {
     /* This builds the actual image; synonymous to docker build on the command line */
     imgName =  readFile env.WORKSPACE+"/imagename.txt"
-    customImage = docker.build("${imgName}")
+    customImage = docker.build("${imgName}", ".")
   }
 
   stage('Test image') {
