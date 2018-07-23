@@ -1,8 +1,9 @@
 // https://getintodevops.com/blog/building-your-first-docker-image-with-jenkins-2-guide-for-developers
 node {
 
-  def customImage
+  def imgName
   def imgVersion
+  def customImage
 
   stage('Clone repository') {
     /* Let's make sure we have the repository cloned to our workspace */
@@ -11,7 +12,8 @@ node {
 
   stage('Build image') {
     /* This builds the actual image; synonymous to docker build on the command line */
-    customImage = docker.build("mauriciojost/arduino-ci")
+    imgName =  readFile env.WORKSPACE+"/imagename.txt"
+    customImage = docker.build("${imgName}")
   }
 
   stage('Test image') {
