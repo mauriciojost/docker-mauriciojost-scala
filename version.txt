@@ -1,1 +1,1 @@
-scala-sbt-openjdk8-0.1.0
+openjdk8-scala2.12.6-sbt1.1.6-0.1.0
