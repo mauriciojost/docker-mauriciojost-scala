@@ -12,8 +12,8 @@ node {
 
   stage('Build image') {
     /* This builds the actual image; synonymous to docker build on the command line */
-    imgName =  readFile env.WORKSPACE+"/imagename.txt"
-    customImage = docker.build("${imgName}", ".")
+    imgName =  (readFile env.WORKSPACE+"/imagename.txt").trim()
+    customImage = docker.build("${imgName}")
   }
 
   stage('Test image') {
@@ -25,7 +25,7 @@ node {
   }
 
   stage('Push image') {
-    imgVersion = readFile env.WORKSPACE+"/version.txt"
+    imgVersion = (readFile env.WORKSPACE+"/version.txt").trim()
     docker.withRegistry('https://registry.hub.docker.com', 'docker_pass') {
       /* Push the container to the custom Registry */
       customImage.push("${imgVersion}")
