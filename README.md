@@ -20,6 +20,6 @@ Then :
 
 ```
 sudo docker login --username=mauriciojost"
-sudo docker build -t mauriciojost/arduino-ci:`cat version.txt` .
-sudo docker push mauriciojost/arduino-ci # account at docker.com needed to publish
+sudo docker build -t mauriciojost/scala-sbt-ci:`cat version.txt` .
+sudo docker push mauriciojost/scala-sbt-ci # account at docker.com needed to publish
 ```
