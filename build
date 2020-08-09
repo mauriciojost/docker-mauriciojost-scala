@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
+source settings.conf
+echo java-$java-scala-$scala-sbt-$sbt-img-$docker_img_version > version.txt
+sed -i "s#JAVA_DOCKER_BASE_HERE#$java#g" "s#SCALA_VERSION_HERE#$scala#g" "s#SBT_VERSION_HERE#$sbt#g" Dockerfile
+
 echo "### Login to docker..."
 docker login --username=mauriciojost
 
 echo "### Build..."
-docker build -t mauriciojost/scala .
+echo docker build -t mauriciojost/scala-sbt-ci:`cat version.txt` .
 
 echo "### Push..."
-docker push mauriciojost/scala
+echo docker push mauriciojost/scala-sbt-ci # account at docker.com needed to publish
 
 echo "### Done."

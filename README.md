@@ -19,7 +19,5 @@ sudo apt-get install docker-ce
 Then :
 
 ```
-sudo docker login --username=mauriciojost"
-sudo docker build -t mauriciojost/scala-sbt-ci:`cat version.txt` .
-sudo docker push mauriciojost/scala-sbt-ci # account at docker.com needed to publish
+./build
 ```
