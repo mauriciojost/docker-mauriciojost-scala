@@ -11,7 +11,7 @@ echo java-$java-scala-$scala-sbt-$sbt-img-$docker_img_version > version.txt
 sed "s#JAVA_DOCKER_BASE_HERE#$java#g; s#SCALA_VERSION_HERE#$scala#g; s#SBT_VERSION_HERE#$sbt#g" Dockerfile.template > Dockerfile
 
 echo "### Login to docker..."
-docker login --username=mauriciojost
+docker login --username="$USERNAME" --password="$PASSWORD"
 
 echo "### Build..."
 docker build -t `cat imagename.txt`:`cat version.txt` .
