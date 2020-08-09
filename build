@@ -2,7 +2,7 @@
 
 source settings.conf
 echo java-$java-scala-$scala-sbt-$sbt-img-$docker_img_version > version.txt
-sed -i "s#JAVA_DOCKER_BASE_HERE#$java#g" "s#SCALA_VERSION_HERE#$scala#g" "s#SBT_VERSION_HERE#$sbt#g" Dockerfile
+sed -i "s#JAVA_DOCKER_BASE_HERE#$java#g; s#SCALA_VERSION_HERE#$scala#g; s#SBT_VERSION_HERE#$sbt#g" Dockerfile
 
 echo "### Login to docker..."
 docker login --username=mauriciojost
