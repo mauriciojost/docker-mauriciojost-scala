@@ -8,7 +8,7 @@ settings="${1:-settings.conf}"
 
 source "$settings"
 echo java-$java-scala-$scala-sbt-$sbt-img-$docker_img_version | sed 's#:#_#g' > version.txt
-sed "s#JAVA_DOCKER_BASE_HERE#$java#g; s#SCALA_VERSION_HERE#$scala#g; s#SBT_VERSION_HERE#$sbt#g; s#PROJECT_REPO_URL_HERE#$project#g" Dockerfile.template > Dockerfile
+sed "s#JAVA_DOCKER_BASE_HERE#$java#g; s#SCALA_VERSION_HERE#$scala#g; s#SBT_VERSION_HERE#$sbt#g; s#PROJECT_REPO_URL_HERE#$project_git_repo#g; s#PROJECT_REPO_COMMANDS_HERE#$project_commands#g" Dockerfile.template > Dockerfile
 
 echo "### Login to docker..."
 docker login --username="$USERNAME" --password="$PASSWORD"

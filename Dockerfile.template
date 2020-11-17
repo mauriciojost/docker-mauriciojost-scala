@@ -26,12 +26,9 @@ RUN \
   rm sbt-$SBT_VERSION.deb && \
   apt-get update && \
   apt-get install sbt && \
-  sbt -Dsbt.rootdir=true sbtVersion && \
-  touch a.scala && \
-  sbt -Dsbt.rootdir=true 'set scalaVersion := "SCALA_VERSION_HERE"' compile && \
-  rm a.scala
+  sbt -Dsbt.rootdir=true sbtVersion
 
-RUN if [ "PROJECT_REPO_URL_HERE" != "" ]; then mkdir proj; cd proj; git clone PROJECT_REPO_URL_HERE; cd *; sbt -Dsbt.rootdir=true compile; cd ..; rm -fr proj; fi
+RUN if [ "PROJECT_REPO_URL_HERE" != "" ]; then mkdir proj; cd proj; git clone PROJECT_REPO_URL_HERE; cd *; PROJECT_REPO_COMMANDS_HERE; cd ..; rm -fr proj; fi
 
 # Define working directory
 WORKDIR /root
